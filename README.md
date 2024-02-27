@@ -12,9 +12,9 @@ Once you have something like:
 
 ```
 $ cd /home/your_username/bashcrawl/entrance
-
+```
 or
-
+```
 cd entrance
 ```
 press RETURN.
