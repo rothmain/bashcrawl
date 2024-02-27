@@ -1,16 +1,55 @@
-AKc2VlLiAgVHJ5IHRoZSBmb2xsb3dpbmcgaW5jYW50
-YXRpb246CgpscyAtYUYKClRoaXMgd2lsbCBzaG93IG9iamVjdHMgYW5kIGRvb3JzIHdoaWNoIAp3
-ZXJlIGhpZGRlbiBiZWZvcmUhCgpFT0YKICAgIGRpc2Fzc2VtYmxlCiAgICBlbHNlCiAgICAgICAg
-Y2F0IDw8IEVPRgoKWW91ciBhdHRhY2sgc3dpbmdzIGhhcm1sZXNzbHkgdGhyb3VnaCB0aGUgYWly
-LiAgWW91IHRha2UgNQpwb2ludHMgZGFtYWdlIGZyb20geW91ciBmb2UuIERlZHVjdCB0aGlzIGZy
-b20geW91ciBIUC4KCmxldCBIUD1IUC01CgpFT0YKICAgICAgICBsZXQgSFA9SFAtNQogICAgICAg
-IGV4cG9ydCBIUAogICAgICAgIGlmIFsgIiRIUCIgLWxlIDAgXTsgdGhlbgogICAgICAgICAgICBj
-YXQgPDwgRU9GClNwYXJrcyBmbHkgZnJvbSB0aGUgcm9ib3QsIGFuZCBpdCBmYWxscyB0byBwaWVj
-ZXMuICBZb3UgYXJlCmVsZWN0cm9jdXRlZCBpbiB0aGUgcHJvY2Vzcy4gIAoKWW91IGhhdmUgYmVl
-biBzbGFpbi4KCkdBTUUgT1ZFUiEKCkVPRgogICAgICAgICAgICBkaXNhc3NlbWJsZQogICAgICAg
-ICAgICBnYW1lb3ZlcgogICAgICAgICAgICBleGl0IDEKICAgICAgICBmaQoJICAgIHJvbGwKICAg
-IGZpCn0KCmRpc2Fzc2VtYmxlICgpIHsKICAgIGJhc2U2NCByb2JvdCA+IGdvbGVtCiAgICBzcGxp
-dCAtbiA0IGdvbGVtCiAgICBtdiB4YWEgZGVsdGEKICAgIG12IHhhYiBiZXRhCiAgICBtdiB4YWMg
-YWxwaGEKICAgIG12IHhhZCBnYW1tYQogICAgcm0gcm9ib3QgZ29sZW0gJj4gL2Rldi9udWxsCn0K
-CmNhdCA8PCBFT0YKVGhlIHJvYm90IGdyaW5kcyB0byBsaWZlLCBhbmQgaXRzIG1lY2hhbmljYWwg
-dGVudGFjbGVzIHJlYWNoCmZvciB5b3UuCgpFT0YKcHJpbnRmICJ
+ you 
+see.  Try the following incantation:
+
+ls -aF
+
+This will show objects and doors which 
+were hidden before!
+
+EOF
+    disassemble
+    else
+        cat << EOF
+
+Your attack swings harmlessly through the air.  You take 5
+points damage from your foe. Deduct this from your HP.
+
+let HP=HP-5
+
+EOF
+        let HP=HP-5
+        export HP
+        if [ "$HP" -le 0 ]; then
+            cat << EOF
+Sparks fly from the robot, and it falls to pieces.  You are
+electrocuted in the process.  
+
+You have been slain.
+
+GAME OVER!
+
+EOF
+            disassemble
+            gameover
+            exit 1
+        fi
+	    roll
+    fi
+}
+
+disassemble () {
+    base64 robot > golem
+    split -n 4 golem
+    mv xaa delta
+    mv xab beta
+    mv xac alpha
+    mv xad gamma
+    rm robot golem &> /dev/null
+}
+
+cat << EOF
+The robot grinds to life, and its mechanical tentacles reach
+for you.
+
+EOF
+p
