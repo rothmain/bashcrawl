@@ -117,12 +117,20 @@ fi
 EOF
         chmod +x platinum
         cat << EOF > end 
-You have reached the "end" of the game.  You know enough
-Bash now to use it for every day activities.  Continue
-on for greater treasures and knowledge.
+The All mighty Rothmain smiles on your progress, come forward
+and offer him a "HIGH FIVE".
 
-And eventually, we hope to see you contribute your own
-dungeon rooms to Bashcrawl!
+Congratulations, you have reached a major milestone
+in your learning.  You know enough Bash now to use it
+for every day activities. 
+
+Now is the time to release your real warrior!  
+
+Continue on for greater treasures and knowledge.
+
+We will not be ruled by Robots!!!
+
+
 
 EOF
 
